@@ -1,2 +1,9 @@
 export const WIDTH = "WIDTH";
 export const HEIGHT = "HEIGHT";
+export const BGCOLOR = "BGCOLOR";
+export const COLOR = "COLOR";
+export const BORDER = "BORDER";
+export const BORDER_RADIUS = "BORDER_RADIUS";
+export const BOXSHADOW = "BOXSHADOW";
+export const INSET = "INSET";
+export const FONTSIZE = "FONTSIZE";
