@@ -6,7 +6,11 @@ const MyButton = () => {
   const paddingY = useSelector((state) => state.reducer.paddingY);
   const bgColor = useSelector((state) => state.reducer.bgColor);
   const color = useSelector((state) => state.reducer.color);
-  console.log(paddingX);
+  const border = useSelector((state) => state.reducer.border);
+  const borderColor = useSelector((state) => state.reducer.borderColor);
+  const borderStyle = useSelector((state) => state.reducer.borderStyle);
+  const borderRadius = useSelector((state) => state.reducer.borderRadius);
+  console.log(borderStyle);
   return (
     <button
       className="bg-gray-600"
@@ -17,6 +21,10 @@ const MyButton = () => {
         paddingBottom: paddingY,
         backgroundColor: bgColor,
         color: color,
+        borderWidth: border,
+        borderStyle: borderStyle,
+        borderColor: borderColor,
+        borderRadius: borderRadius,
       }}
     >
       Button

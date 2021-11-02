@@ -8,8 +8,9 @@ const ButtonSettings = () => {
   const [width, setWidth] = useState(30);
   const [height, setHeight] = useState(10);
   const [bgColor, setBgColor] = useState("");
-  const [btnColor, setBtncolor] = useState("");
   const [border, setBorder] = useState(10);
+  const [borderRadius, setBorderRadius] = useState(10);
+  const [btnColor, setBtncolor] = useState("");
   const btnWidth = (e) => {
     setWidth(e.target.value);
     const action = { type: t.WIDTH, payload: width };
@@ -32,7 +33,20 @@ const ButtonSettings = () => {
   };
   const btnBorder = (e) => {
     setBorder(e.target.value);
-    const action = { type: t.COLOR, payload: border };
+    const action = { type: t.BORDER, payload: border };
+    dispatch(action);
+  };
+  const btnBorderStyle = (e) => {
+    const action = { type: t.BORDER_STYLE, payload: e.target.value };
+    dispatch(action);
+  };
+  const btnBorderRadius = (e) => {
+    setBorderRadius(e.target.value);
+    const action = { type: t.BORDER_RADIUS, payload: e.target.value };
+    dispatch(action);
+  };
+  const btnBorderColor = (e) => {
+    const action = { type: t.BORDER_COLOR, payload: e.target.value };
     dispatch(action);
   };
   return (
@@ -75,12 +89,53 @@ const ButtonSettings = () => {
               <span className="font-bold text-yellow-400">{border}px</span>
             </p>
             <Slider
-              defaultValue={30}
+              defaultValue={10}
               min={0}
               max={30}
               aria-label="Default"
               valueLabelDisplay="auto"
-              onChange={btnBorder}
+              onChange={(e) => btnBorder(e)}
+            />
+          </div>
+          <div>
+            <p>
+              Border-radius:{" "}
+              <span className="font-bold text-yellow-400">
+                {borderRadius}px
+              </span>
+            </p>
+            <Slider
+              defaultValue={10}
+              min={0}
+              max={50}
+              aria-label="Default"
+              valueLabelDisplay="auto"
+              onChange={(e) => btnBorderRadius(e)}
+            />
+          </div>
+          <div>
+            <span>Border-style: </span>
+            <select className="select-text" onChange={(e) => btnBorderStyle(e)}>
+              <option value="none">None</option>
+              <option value="dashed">Dashed</option>
+              <option value="dotted">Dotted</option>
+              <option value="solid">Solid</option>
+              <option value="double">Double</option>
+              <option value="groove">Groove</option>
+              <option value="ridge">Ridge</option>
+              <option value="inset">Inset</option>
+              <option value="outset">Outset</option>
+              <option value="hidden">Hidden</option>
+              <option value="dotted dashed solid double">Mix</option>
+            </select>
+          </div>
+          <div>
+            <span>Border-color: </span>
+            <input
+              type="color"
+              className="w-7 h-7 border-0 outline-none"
+              defaultValue={"#80E5ff"}
+              onChange={(e) => btnBorderColor(e)}
             />
           </div>
         </div>
