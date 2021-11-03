@@ -14,6 +14,7 @@ const initialState = {
   boxShadowX: 0,
   boxShadowBlur: 0,
   boxShadowSpread: 0,
+  boxShadowInset: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -44,6 +45,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, boxShadowSpread: action.payload };
     case t.BOXSHADOWCOLOR:
       return { ...state, boxShadowColor: action.payload };
+    case t.BOXSHADOWINSET:
+      return { ...state, boxShadowInset: action.payload };
 
     default:
       return state;

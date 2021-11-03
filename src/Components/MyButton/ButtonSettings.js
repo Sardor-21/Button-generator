@@ -5,6 +5,7 @@ import ButtonSlide from "../ButtonSlide/ButtonSlide";
 import Title from "../Title/title";
 import Select from "../Select/select";
 import ColorInput from "../Color/colorinput";
+import { BsCheck } from "react-icons/bs";
 const ButtonSettings = () => {
   const widthRef = useRef();
   const [width, setWidth] = useState(30);
@@ -17,6 +18,7 @@ const ButtonSettings = () => {
   const [boxShadowX, setBoxShadowX] = useState(0);
   const [boxShadowBlur, setBoxShadowBlur] = useState(0);
   const [boxShadowSpread, setBoxShadowSpread] = useState(0);
+  const [boxShadowInset, setBoxShadowInset] = useState(false);
   const btnWidth = (e) => {
     setWidth(e.target.value);
     const action = { type: t.WIDTH, payload: width };
@@ -77,6 +79,11 @@ const ButtonSettings = () => {
   const btnBoxShadowSpread = (e) => {
     setBoxShadowSpread(e.target.value);
     const action = { type: t.BOXSHADOWSPREAD, payload: e.target.value };
+    dispatch(action);
+  };
+  const btnBoxShadowInset = () => {
+    setBoxShadowInset(!boxShadowInset);
+    const action = { type: t.BOXSHADOWINSET, payload: !boxShadowInset };
     dispatch(action);
   };
 
@@ -174,6 +181,12 @@ const ButtonSettings = () => {
           />
         </div>
         <div className="grid grid-cols-2 gap-8 mb-3">
+          <div className="flex items-center" onClick={btnBoxShadowInset}>
+            <div className="mr-3">Inset </div>
+            <div className="border-2 w-5 h-5 text-xl flex justify-center items-center">
+              {boxShadowInset ? <BsCheck /> : ""}
+            </div>
+          </div>
           <ColorInput
             dfValue="#80e5ff"
             fname={"Box-shadow-color:"}
