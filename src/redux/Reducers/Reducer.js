@@ -9,6 +9,11 @@ const initialState = {
   borderStyle: "none",
   borderColor: "#80E5ff",
   borderRadius: "10px",
+  boxShadowColor: "#80e5ff",
+  boxShadowY: 0,
+  boxShadowX: 0,
+  boxShadowBlur: 0,
+  boxShadowSpread: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +34,17 @@ const reducer = (state = initialState, action) => {
       return { ...state, borderColor: action.payload };
     case t.BORDER_RADIUS:
       return { ...state, borderRadius: action.payload };
+    case t.BOXSHADOWY:
+      return { ...state, boxShadowY: action.payload };
+    case t.BOXSHADOWX:
+      return { ...state, boxShadowX: action.payload };
+    case t.BOXSHADOWBLUR:
+      return { ...state, boxShadowBlur: action.payload };
+    case t.BOXSHADOWSPREAD:
+      return { ...state, boxShadowSpread: action.payload };
+    case t.BOXSHADOWCOLOR:
+      return { ...state, boxShadowColor: action.payload };
+
     default:
       return state;
   }

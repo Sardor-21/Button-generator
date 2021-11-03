@@ -10,6 +10,11 @@ const MyButton = () => {
   const borderColor = useSelector((state) => state.reducer.borderColor);
   const borderStyle = useSelector((state) => state.reducer.borderStyle);
   const borderRadius = useSelector((state) => state.reducer.borderRadius);
+  const boxShadowColor = useSelector((state) => state.reducer.boxShadowColor);
+  const boxShadowY = useSelector((state) => state.reducer.boxShadowY);
+  const boxShadowX = useSelector((state) => state.reducer.boxShadowX);
+  const boxShadowBlur = useSelector((state) => state.reducer.boxShadowBlur);
+  const boxShadowSpread = useSelector((state) => state.reducer.boxShadowSpread);
   console.log(borderStyle);
   return (
     <button
@@ -25,6 +30,7 @@ const MyButton = () => {
         borderStyle: borderStyle,
         borderColor: borderColor,
         borderRadius: borderRadius,
+        boxShadow: `${boxShadowY}px ${boxShadowX}px ${boxShadowBlur}px ${boxShadowSpread}px ${boxShadowColor}`,
       }}
     >
       Button

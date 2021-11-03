@@ -5,7 +5,7 @@ import Button from "./Components/MyButton/Button";
 function App() {
   return (
     <div className="App bg-gray-50">
-      <div className="container mx-auto grid grid-cols-3 gap-10">
+      <div className="container  mx-auto grid lg:grid-cols-3 md:grid-cols-2 gap-10 sm:grid-cols-1">
         <div>
           <ButtonSettings />
         </div>

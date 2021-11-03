@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
 import { dispatch } from "../../redux/store";
 import * as t from "../../redux/types";
-import Slider from "@mui/material/Slider";
-
+import ButtonSlide from "../ButtonSlide/ButtonSlide";
+import Title from "../Title/title";
+import Select from "../Select/select";
+import ColorInput from "../Color/colorinput";
 const ButtonSettings = () => {
   const widthRef = useRef();
   const [width, setWidth] = useState(30);
@@ -11,6 +13,10 @@ const ButtonSettings = () => {
   const [border, setBorder] = useState(10);
   const [borderRadius, setBorderRadius] = useState(10);
   const [btnColor, setBtncolor] = useState("");
+  const [boxShadowY, setBoxShadowY] = useState(0);
+  const [boxShadowX, setBoxShadowX] = useState(0);
+  const [boxShadowBlur, setBoxShadowBlur] = useState(0);
+  const [boxShadowSpread, setBoxShadowSpread] = useState(0);
   const btnWidth = (e) => {
     setWidth(e.target.value);
     const action = { type: t.WIDTH, payload: width };
@@ -49,95 +55,130 @@ const ButtonSettings = () => {
     const action = { type: t.BORDER_COLOR, payload: e.target.value };
     dispatch(action);
   };
+  const btnBoxShadowY = (e) => {
+    setBoxShadowY(e.target.value);
+    const action = { type: t.BOXSHADOWY, payload: e.target.value };
+    dispatch(action);
+  };
+  const btnBoxShadowColor = (e) => {
+    const action = { type: t.BOXSHADOWCOLOR, payload: e.target.value };
+    dispatch(action);
+  };
+  const btnBoxShadowX = (e) => {
+    setBoxShadowX(e.target.value);
+    const action = { type: t.BOXSHADOWX, payload: e.target.value };
+    dispatch(action);
+  };
+  const btnBoxShadowBlur = (e) => {
+    setBoxShadowBlur(e.target.value);
+    const action = { type: t.BOXSHADOWBLUR, payload: e.target.value };
+    dispatch(action);
+  };
+  const btnBoxShadowSpread = (e) => {
+    setBoxShadowSpread(e.target.value);
+    const action = { type: t.BOXSHADOWSPREAD, payload: e.target.value };
+    dispatch(action);
+  };
+
   return (
     <div>
       <input type="text" ref={widthRef} onChange={btnWidth} />
       <div>
-        <h2 className="block font-bold">Button Size</h2>
+        {/* =============Button Size============== */}
+        <Title>Button Size</Title>
         <div className="grid grid-cols-2 gap-8">
-          <div>
-            <p>
-              Vertical size:{" "}
-              <span className="font-bold text-yellow-400">{height}px</span>
-            </p>
-            <Slider
-              defaultValue={10}
-              min={0}
-              max={35}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              onChange={btnHeight}
-            />
-          </div>
-          <div>
-            <p>
-              Horizontal size:{" "}
-              <span className="font-bold text-yellow-400">{width}px</span>
-            </p>
-            <Slider
-              defaultValue={30}
-              min={0}
-              max={80}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              onChange={btnWidth}
-            />
-          </div>
-          <div>
-            <p>
-              Border:{" "}
-              <span className="font-bold text-yellow-400">{border}px</span>
-            </p>
-            <Slider
-              defaultValue={10}
-              min={0}
-              max={30}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              onChange={(e) => btnBorder(e)}
-            />
-          </div>
-          <div>
-            <p>
-              Border-radius:{" "}
-              <span className="font-bold text-yellow-400">
-                {borderRadius}px
-              </span>
-            </p>
-            <Slider
-              defaultValue={10}
-              min={0}
-              max={50}
-              aria-label="Default"
-              valueLabelDisplay="auto"
-              onChange={(e) => btnBorderRadius(e)}
-            />
-          </div>
+          <ButtonSlide
+            fname={"Vertical size: "}
+            item={height}
+            dfValue={10}
+            min={0}
+            max={35}
+            func={btnHeight}
+          />
+          <ButtonSlide
+            fname={"Horizontal size: "}
+            item={width}
+            dfValue={30}
+            min={0}
+            max={80}
+            func={btnWidth}
+          />
+        </div>
+        <Title>Border</Title>
+        <div className="grid grid-cols-2 gap-8">
+          <ButtonSlide
+            fname={"Border-size: "}
+            item={border}
+            dfValue={10}
+            min={0}
+            max={30}
+            func={btnBorder}
+          />
+          <ButtonSlide
+            fname={"Border-radius: "}
+            item={borderRadius}
+            dfValue={10}
+            min={0}
+            max={50}
+            func={btnBorderRadius}
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-3">
           <div>
             <span>Border-style: </span>
-            <select className="select-text" onChange={(e) => btnBorderStyle(e)}>
-              <option value="none">None</option>
-              <option value="dashed">Dashed</option>
-              <option value="dotted">Dotted</option>
-              <option value="solid">Solid</option>
-              <option value="double">Double</option>
-              <option value="groove">Groove</option>
-              <option value="ridge">Ridge</option>
-              <option value="inset">Inset</option>
-              <option value="outset">Outset</option>
-              <option value="hidden">Hidden</option>
-              <option value="dotted dashed solid double">Mix</option>
-            </select>
+            <Select func={btnBorderStyle} />
           </div>
           <div>
-            <span>Border-color: </span>
-            <input
-              type="color"
-              className="w-7 h-7 border-0 outline-none"
-              defaultValue={"#80E5ff"}
-              onChange={(e) => btnBorderColor(e)}
+            <ColorInput
+              fname={"Border-color: "}
+              dfValue={"#80E5ff"}
+              func={btnBorderColor}
             />
           </div>
+        </div>
+        <Title>Box-shadow</Title>
+        <div className="grid grid-cols-2 gap-8 mb-3">
+          <ButtonSlide
+            fname={"Vertical-position: "}
+            item={boxShadowY}
+            dfValue={0}
+            min={-100}
+            max={100}
+            func={btnBoxShadowY}
+          />
+          <ButtonSlide
+            fname={"Horizontal-position: "}
+            item={boxShadowX}
+            dfValue={0}
+            min={-100}
+            max={100}
+            func={btnBoxShadowX}
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-3">
+          <ButtonSlide
+            fname={"Blur-radius: "}
+            item={boxShadowBlur}
+            dfValue={0}
+            min={0}
+            max={50}
+            func={btnBoxShadowBlur}
+          />
+          <ButtonSlide
+            fname={"Spread-radius: "}
+            item={boxShadowSpread}
+            dfValue={0}
+            min={-50}
+            max={50}
+            func={btnBoxShadowSpread}
+          />
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-3">
+          <ColorInput
+            dfValue="#80e5ff"
+            fname={"Box-shadow-color:"}
+            func={btnBoxShadowColor}
+          />
         </div>
         <div className="grid grid-cols-2 gap-8">
           <div className="flex items-center">
