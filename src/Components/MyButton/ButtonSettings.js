@@ -103,7 +103,10 @@ const ButtonSettings = () => {
     const action = { type: t.TEXTSHADOWBLUR, payload: e.target.value };
     dispatch(action);
   };
-
+  const btnTextShadowColor = (e) => {
+    const action = { type: t.TEXTSHADOWCOLOR, payload: e.target.value };
+    dispatch(action);
+  };
   return (
     <div>
       {/* =============Button Size============== */}
@@ -148,22 +151,31 @@ const ButtonSettings = () => {
           <span>Border-style: </span>
           <Select func={btnBorderStyle} />
         </div>
-        <div>
-          <ColorInput
-            fname={"Border-color: "}
-            dfValue={"#80E5ff"}
-            func={btnBorderColor}
-          />
-        </div>
+        <div></div>
       </div>
-      <Title>Color</Title>
+      <Title>Button colors</Title>
       <div className="grid grid-cols-2 gap-x-8 gap-y-2 pt-3 mb-3">
         <ColorInput
           fname={"Background-color:"}
           dfValue={"#00ccff"}
           onChange={bgBtn}
         />
+        <ColorInput
+          fname={"Text-shadow-color: "}
+          dfValue={"#ffffff"}
+          func={btnTextShadowColor}
+        />
         <ColorInput fname={"Color:"} dfValue={"#ffffff"} onChange={color} />
+        <ColorInput
+          dfValue="#80e5ff"
+          fname={"Box-shadow-color:"}
+          func={btnBoxShadowColor}
+        />
+        <ColorInput
+          fname={"Border-color: "}
+          dfValue={"#80E5ff"}
+          func={btnBorderColor}
+        />
       </div>
       <Title>
         <div className="flex items-center">
@@ -209,11 +221,6 @@ const ButtonSettings = () => {
           min={-50}
           max={50}
           func={btnBoxShadowSpread}
-        />
-        <ColorInput
-          dfValue="#80e5ff"
-          fname={"Box-shadow-color:"}
-          func={btnBoxShadowColor}
         />
       </div>
       <Title>Text-shadow</Title>

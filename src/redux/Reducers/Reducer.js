@@ -18,6 +18,7 @@ const initialState = {
   textShadowY: 0,
   textShadowX: 0,
   textShadowBlur: 0,
+  textShadowColor: "#ffffff",
 };
 
 const reducer = (state = initialState, action) => {
@@ -56,6 +57,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, textShadowX: action.payload };
     case t.TEXTSHADOWBLUR:
       return { ...state, textShadowBlur: action.payload };
+    case t.TEXTSHADOWCOLOR:
+      return { ...state, textShadowColor: action.payload };
     default:
       return state;
   }

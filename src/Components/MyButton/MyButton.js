@@ -19,6 +19,7 @@ const MyButton = () => {
   const textShadowY = useSelector((state) => state.reducer.textShadowY);
   const textShadowX = useSelector((state) => state.reducer.textShadowX);
   const textShadowBlur = useSelector((state) => state.reducer.textShadowBlur);
+  const textShadowColor = useSelector((state) => state.reducer.textShadowColor);
   console.log(borderStyle);
   return (
     <button
@@ -37,7 +38,7 @@ const MyButton = () => {
         boxShadow: `${boxShadowY}px ${boxShadowX}px ${boxShadowBlur}px ${boxShadowSpread}px ${boxShadowColor} ${
           boxShadowInset ? "inset" : ""
         }`,
-        textShadow: `${textShadowX}px ${textShadowY}px ${textShadowBlur}px`,
+        textShadow: `${textShadowX}px ${textShadowY}px ${textShadowBlur}px ${textShadowColor}`,
       }}
     >
       Button
