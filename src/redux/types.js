@@ -14,3 +14,6 @@ export const BOXSHADOWINSET = "BOXSHADOWXINSET";
 export const INSET = "INSET";
 export const FONTSIZE = "FONTSIZE";
 export const BORDER_COLOR = "BORDER_COLOR";
+export const TEXTSHADOWY = "TEXTSHADOWY";
+export const TEXTSHADOWX = "TEXTSHADOWX";
+export const TEXTSHADOWBLUR = "TEXTSHADOWBLUR";

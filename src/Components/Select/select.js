@@ -3,7 +3,7 @@ import React from "react";
 const Select = ({ func }) => {
   return (
     <select
-      className="select-text outline-none border-2 rounded-md px-3"
+      className="select-text outline-none border-2 rounded-md px-3 cursor-pointer"
       onChange={(e) => func(e)}
     >
       <option value="none">None</option>

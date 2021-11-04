@@ -6,7 +6,7 @@ const ColorInput = ({ fname, dfValue, func }) => {
       <span className="mr-2">{fname} </span>
       <input
         type="color"
-        className="w-7 h-7 border-0 outline-none"
+        className="w-7 h-7 rounded-full outline-none"
         defaultValue={dfValue}
         onChange={(e) => func(e)}
       />
