@@ -40,7 +40,7 @@ const reducer = (state = initialState, action) => {
     case t.BORDER_COLOR:
       return { ...state, borderColor: action.payload };
     case t.BORDER_RADIUS:
-      return { ...state, borderRadius: action.payload };
+      return { ...state, borderRadius: action.payload + "px" };
     case t.BOXSHADOWY:
       return { ...state, boxShadowY: action.payload };
     case t.BOXSHADOWX:

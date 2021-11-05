@@ -52,7 +52,7 @@ const StyleButton = () => {
           </p>
           <p className="text-black-700 font-semibold">
             <span className="text-red-200 font-bold">border-radius</span>:{" "}
-            {borderRadius}px;
+            {borderRadius};
           </p>
           <p className="text-black-700 font-semibold">
             <span className="text-red-200 font-bold">background-color</span>:{" "}
@@ -63,9 +63,8 @@ const StyleButton = () => {
           </p>
           <p className="text-black-700 font-semibold">
             <span className="text-red-200 font-bold">box-shadow</span>:{" "}
-            {boxShadowY}px {boxShadowX}px {boxShadowBlur}px
-            {boxShadowSpread}px {boxShadowColor} {boxShadowInset ? "inset" : ""}
-            ;
+            {boxShadowY}px {boxShadowX}px {boxShadowBlur}px {boxShadowSpread}px{" "}
+            {boxShadowColor} {boxShadowInset ? "inset" : ""};
           </p>
           <p className="text-black-700 font-semibold">
             <span className="text-red-200 font-bold">text-shadow</span>:{" "}
