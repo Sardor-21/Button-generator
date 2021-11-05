@@ -107,9 +107,31 @@ const ButtonSettings = () => {
     const action = { type: t.TEXTSHADOWCOLOR, payload: e.target.value };
     dispatch(action);
   };
+  const btnText = (e) => {
+    const action = { type: t.BTNTEXT, payload: e.target.value };
+    dispatch(action);
+  };
+  const btnClassName = (e) => {
+    const action = { type: t.BTNCLASSNAME, payload: e.target.value };
+    dispatch(action);
+  };
   return (
     <div>
-      {/* =============Button Size============== */}
+      <Title>Text</Title>
+      <div className="grid grid-cols-2 gap-x-8 gap-y-2 pt-3 mb-3">
+        <input
+          type="text"
+          placeholder="Text My button"
+          className="input border-2 outline-none px-3"
+          onChange={btnText}
+        />
+        <input
+          type="text"
+          placeholder="Classname"
+          className="input border-2 outline-none px-3"
+          onChange={btnClassName}
+        />
+      </div>
       <Title>Button Size</Title>
       <div className="grid grid-cols-2 gap-8">
         <ButtonSlide
@@ -147,11 +169,10 @@ const ButtonSettings = () => {
           max={50}
           func={btnBorderRadius}
         />
-        <div>
-          <span>Border-style: </span>
-          <Select func={btnBorderStyle} />
-        </div>
-        <div></div>
+      </div>
+      <div className="flex mb-3 items-center">
+        <span className="mr-2">Border-style: </span>
+        <Select func={btnBorderStyle} />
       </div>
       <Title>Button colors</Title>
       <div className="grid grid-cols-2 gap-x-8 gap-y-2 pt-3 mb-3">

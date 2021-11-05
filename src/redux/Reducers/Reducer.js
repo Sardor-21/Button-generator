@@ -19,6 +19,8 @@ const initialState = {
   textShadowX: 0,
   textShadowBlur: 0,
   textShadowColor: "#ffffff",
+  text: "Button",
+  className: "myButton",
 };
 
 const reducer = (state = initialState, action) => {
@@ -59,6 +61,10 @@ const reducer = (state = initialState, action) => {
       return { ...state, textShadowBlur: action.payload };
     case t.TEXTSHADOWCOLOR:
       return { ...state, textShadowColor: action.payload };
+    case t.BTNTEXT:
+      return { ...state, text: action.payload };
+    case t.BTNCLASSNAME:
+      return { ...state, className: action.payload };
     default:
       return state;
   }

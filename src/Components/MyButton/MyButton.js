@@ -20,6 +20,7 @@ const MyButton = () => {
   const textShadowX = useSelector((state) => state.reducer.textShadowX);
   const textShadowBlur = useSelector((state) => state.reducer.textShadowBlur);
   const textShadowColor = useSelector((state) => state.reducer.textShadowColor);
+  const text = useSelector((state) => state.reducer.text);
   console.log(borderStyle);
   return (
     <button
@@ -41,7 +42,7 @@ const MyButton = () => {
         textShadow: `${textShadowX}px ${textShadowY}px ${textShadowBlur}px ${textShadowColor}`,
       }}
     >
-      Button
+      {text ? text : "My Button"}
     </button>
   );
 };

@@ -4,8 +4,8 @@ import React from "react";
 const ButtonSlide = ({ fname, item, dfValue, min, max, func }) => {
   return (
     <div>
-      <p>
-        {fname} <span className="font-bold text-yellow-400">{item}px</span>
+      <p className="text-black font-extrabold">
+        {fname} <span className="font-bold text-blue-400">{item}px</span>
       </p>
       <Slider
         defaultValue={dfValue}
