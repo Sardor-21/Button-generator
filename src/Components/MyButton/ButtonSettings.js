@@ -179,14 +179,14 @@ const ButtonSettings = () => {
         <ColorInput
           fname={"Background-color:"}
           dfValue={"#00ccff"}
-          onChange={bgBtn}
+          func={bgBtn}
         />
         <ColorInput
           fname={"Text-shadow-color: "}
           dfValue={"#ffffff"}
           func={btnTextShadowColor}
         />
-        <ColorInput fname={"Color:"} dfValue={"#ffffff"} onChange={color} />
+        <ColorInput fname={"Color:"} dfValue={"#ffffff"} func={color} />
         <ColorInput
           dfValue="#80e5ff"
           fname={"Box-shadow-color:"}

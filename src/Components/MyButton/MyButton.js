@@ -40,6 +40,8 @@ const MyButton = () => {
           boxShadowInset ? "inset" : ""
         }`,
         textShadow: `${textShadowX}px ${textShadowY}px ${textShadowBlur}px ${textShadowColor}`,
+        fontSize: "20px",
+        fontWeight: "bolder",
       }}
     >
       {text ? text : "My Button"}
